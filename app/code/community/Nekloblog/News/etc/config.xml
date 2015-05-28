@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <config>
     <modules>
         <Nekloblog_News>
@@ -67,15 +67,33 @@
             </updates>
         </layout>
     </frontend>
-    <admin>
+    <Admin>
         <routers>
             <adminhtml>
                 <args>
                     <modules>
-                        <Nekloblog_News before="Mage_adminhtml">Nekloblog_News_adminhtml</Nekloblog_News>
+                        <Nekloblog_News before="Mage_Adminhtml">Nekloblog_News_adminhtml</Nekloblog_News>
                     </modules>
                 </args>
             </adminhtml>
         </routers>
-    </admin>
+    </Admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <nekloblog_news>
+                    <file>nekloblog_news.xml</file>
+                </nekloblog_news>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <news>
+            <view>
+                <enabled>1</enabled>
+                <items_per_page>20</items_per_page>
+                <days_difference>3</days_difference>
+            </view>
+        </news>
+    </default>
 </config>
