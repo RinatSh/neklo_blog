@@ -12,6 +12,4 @@ class Nekloblog_News_Model_Resource_News_Collection extends Mage_Core_Model_Mysq
     }
 
 
-
-
 }

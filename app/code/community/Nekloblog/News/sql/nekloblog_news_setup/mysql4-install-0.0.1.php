@@ -19,38 +19,29 @@ $table = $installer->getConnection()
         'unsigned' => true,
         'identity' => true,
         'nullable' => false,
-        'primary' => true,
+        'primary'  => true,
     ), 'Entity id')
     ->addColumn('title', Varien_Db_Ddl_Table::TYPE_VARCHAR, 255, array(
         'nullable' => true,
     ), 'Title')
     ->addColumn('author', Varien_Db_Ddl_Table::TYPE_VARCHAR, 63, array(
         'nullable' => true,
-        'default' => null,
+        'default'  => null,
     ), 'Author')
     ->addColumn('content', Varien_Db_Ddl_Table::TYPE_VARCHAR, '2M', array(
         'nullable' => true,
-        'default' => null,
+        'default'  => null,
     ), 'Content')
     ->addColumn('image', Varien_Db_Ddl_Table::TYPE_VARCHAR, null, array(
         'nullable' => true,
-        'default' => null,
+        'default'  => null,
     ), 'News image media path')
     ->addColumn('published_at', Varien_Db_Ddl_Table::TYPE_DATE, null, array(
         'nullable' => true,
-        'default' => null,
+        'default'  => null,
     ), 'World publish date')
     ->addColumn('created_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
         'nullable' => true,
-        'default' => null,
-    ), 'Creation Time')
-    ->addIndex($installer->getIdxName(
-        $installer->getTable('nekloblog_news/news'),
-        array('published_at'),
-        Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX
-    ),
-        array('published_at'),
-        array('type' => Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX)
-    )
-    ->setComment('News item');
+        'default'  => null,
+    ), 'Creation Time');
 $installer->getConnection()->createTable($table);
