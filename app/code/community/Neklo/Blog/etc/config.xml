@@ -1,82 +1,82 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Nekloblog_News>
-            <version>0.0.1</version>
-        </Nekloblog_News>
+        <Neklo_Blog>
+            <version>1.0.0</version>
+        </Neklo_Blog>
     </modules>
     <global>
         <models>
-            <nekloblog_news>
-                <class>Nekloblog_News_Model</class>
-                <resourceModel>news_resource</resourceModel>
-            </nekloblog_news>
-            <news_resource>
-                <class>Nekloblog_News_Model_Resource</class>
+            <neklo_blog>
+                <class>Neklo_Blog_Model</class>
+                <resourceModel>neklo_blog_news</resourceModel>
+            </neklo_blog>
+            <neklo_blog_news>
+                <class>Neklo_Blog_Model_Resource</class>
                 <entities>
                     <news>
-                        <table>nekloblog_news</table>
+                        <table>neklo_blog_news</table>
                     </news>
                 </entities>
-            </news_resource>
+            </neklo_blog_news>
         </models>
         <helpers>
-            <nekloblog_news>
-                <class>Nekloblog_News_Helper</class>
-            </nekloblog_news>
+            <neklo_blog>
+                <class>Neklo_Blog_Helper</class>
+            </neklo_blog>
         </helpers>
         <blocks>
-            <nekloblog_news>
-                <class>Nekloblog_News_Block</class>
-            </nekloblog_news>
+            <neklo_blog>
+                <class>Neklo_Blog_Block</class>
+            </neklo_blog>
         </blocks>
         <resources>
-            <nekloblog_news_setup>
+            <neklo_blog_setup>
                 <setup>
-                    <module>Nekloblog_News</module>
+                    <module>Neklo_Blog</module>
                     <class>Mage_Eav_Model_Entity_Setup</class>
                 </setup>
                 <connection>
                     <use>core_setup</use>
                 </connection>
-            </nekloblog_news_setup>
-            <nekloblog_news_write>
+            </neklo_blog_setup>
+            <neklo_blog_write>
                 <connection>
                     <use>core_write</use>
                 </connection>
-            </nekloblog_news_write>
-            <nekloblog_news_read>
+            </neklo_blog_write>
+            <neklo_blog_read>
                 <connection>
                     <use>core_read</use>
                 </connection>
-            </nekloblog_news_read>
+            </neklo_blog_read>
         </resources>
         <events>
             <before_news_item_display>
                 <observers>
-                    <nekloblog_news>
-                        <class>nekloblog_news/observer</class>
+                    <neklo_blog>
+                        <class>neklo_blog/observer</class>
                         <method>beforeNewsItemDisplayed</method>
-                    </nekloblog_news>
+                    </neklo_blog>
                 </observers>
             </before_news_item_display>
         </events>
     </global>
     <frontend>
         <routers>
-            <nekloblog_news>
+            <neklo_blog>
                 <use>standard</use>
                 <args>
-                    <module>Nekloblog_News</module>
+                    <module>Neklo_Blog</module>
                     <frontName>news</frontName>
                 </args>
-            </nekloblog_news>
+            </neklo_blog>
         </routers>
         <layout>
             <updates>
-                <nekloblog_news>
-                    <file>nekloblog_news.xml</file>
-                </nekloblog_news>
+                <neklo_blog>
+                    <file>neklo_blog.xml</file>
+                </neklo_blog>
             </updates>
         </layout>
     </frontend>
@@ -85,7 +85,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <Nekloblog_News before="Mage_Adminhtml">Nekloblog_News_Adminhtml</Nekloblog_News>
+                        <Neklo_Blog before="Mage_Adminhtml">Neklo_Blog_Adminhtml</Neklo_Blog>
                     </modules>
                 </args>
             </adminhtml>
@@ -94,9 +94,9 @@
     <adminhtml>
         <layout>
             <updates>
-                <nekloblog_news>
-                    <file>nekloblog_news.xml</file>
-                </nekloblog_news>
+                <neklo_blog>
+                    <file>neklo_blog.xml</file>
+                </neklo_blog>
             </updates>
         </layout>
     </adminhtml>

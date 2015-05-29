@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Nekloblog_News>
+        <Neklo_Blog>
             <active>true</active>
             <codePool>community</codePool>
             <depends>
                 <Mage_Adminhtml />
             </depends>
-        </Nekloblog_News>
+        </Neklo_Blog>
     </modules>
 </config>
