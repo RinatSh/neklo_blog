@@ -44,7 +44,7 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
     /**
      * News view action
      */
-    
+
     public function viewAction()
     {
         $newsId = $this->getRequest()->getParam('id');
