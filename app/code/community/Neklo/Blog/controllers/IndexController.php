@@ -13,7 +13,7 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
     public function preDispatch()
     {
         parent::preDispatch();
-        if(!Mage::helper('neklo_blog/news')->isEnable()){
+        if(!Mage::helper('neklo_blog')->isEnabled()){
             $this->setFlag('','no-dispatch', true);
             $this->_redirect('noRoute');
         }
@@ -44,6 +44,7 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
     /**
      * News view action
      */
+    
     public function viewAction()
     {
         $newsId = $this->getRequest()->getParam('id');

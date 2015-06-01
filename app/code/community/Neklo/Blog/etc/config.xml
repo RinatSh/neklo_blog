@@ -20,16 +20,16 @@
                 </entities>
             </neklo_blog_news>
         </models>
-        <helpers>
-            <neklo_blog>
-                <class>Neklo_Blog_Helper</class>
-            </neklo_blog>
-        </helpers>
         <blocks>
             <neklo_blog>
                 <class>Neklo_Blog_Block</class>
             </neklo_blog>
         </blocks>
+        <helpers>
+            <neklo_blog>
+                <class>Neklo_Blog_Helper</class>
+            </neklo_blog>
+        </helpers>
         <resources>
             <neklo_blog_setup>
                 <setup>
