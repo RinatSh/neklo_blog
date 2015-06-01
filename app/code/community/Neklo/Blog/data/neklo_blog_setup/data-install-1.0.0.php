@@ -9,9 +9,9 @@
 $installer = $this;
 
 /**
- * @var $model Magentostudy_News_Model_News
+ * @var $model Neklo_Blog_Model_News
  */
-$model = Mage::getModel('magentostudy_news/news');
+$model = Mage::getModel('neklo_blog/news');
 // Set up data rows
 $dataRows = array(
     array(
