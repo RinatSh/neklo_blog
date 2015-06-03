@@ -32,7 +32,7 @@ class Neklo_Blog_Helper_Image extends Mage_Core_Helper_Abstract
      * Maximum image height in pixels
      * @var int
      */
-    const MAX_HEIGHT = 800;
+    const MAX_HEIGHT = 1800;
 
     /**
      * Manimum image width in pixels
@@ -44,17 +44,19 @@ class Neklo_Blog_Helper_Image extends Mage_Core_Helper_Abstract
      * Maximum image width in pixels
      * @var int
      */
-    const MAX_WIDTH = 800;
+    const MAX_WIDTH = 1800;
 
     /**
      * Array of image size limitation
      * @var array
      */
     protected $_imageSize = array(
+
         'minheight' => self::MIN_HEIGHT,
-        'minwidth' => self::MIN_WIDTH,
+        'minwidth'  => self::MIN_WIDTH,
         'maxheight' => self::MAX_HEIGHT,
-        'maxwidth' => self::MAX_WIDTH,
+        'maxwidth'  => self::MAX_WIDTH,
+
     );
 
     /**
