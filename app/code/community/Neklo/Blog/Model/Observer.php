@@ -4,7 +4,7 @@
  * News module observer
  */
 
-class Neklo_Blog_Model_Observer_Model_Observer
+class Neklo_Blog_Model_Observer
 {
     /**
      * Event before show news item on frontend

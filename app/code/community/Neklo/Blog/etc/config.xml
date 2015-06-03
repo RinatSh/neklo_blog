@@ -56,7 +56,7 @@
                 <observers>
                     <neklo_blog>
                         <class>neklo_blog/observer</class>
-                        <method>beforeNewsItemDisplayed</method>
+                        <method>beforeNewsDisplayed</method>
                     </neklo_blog>
                 </observers>
             </before_news_item_display>
