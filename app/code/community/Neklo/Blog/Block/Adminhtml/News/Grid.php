@@ -3,11 +3,13 @@
 /**
  * News List admin grid
  */
+
 class Neklo_Blog_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
     /**
      * Init Grid default properties
      */
+
     public function __construct()
     {
         parent::__construct();
@@ -20,6 +22,7 @@ class Neklo_Blog_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_G
 
     /**
      * Prepare collection for Grid
+     *
      * @return Neklo_Blog_Block_Adminhtml_News_Grid
      */
 
@@ -32,6 +35,7 @@ class Neklo_Blog_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_G
 
     /**
      * Prepare Grid columns
+     *
      * @return Mage_Adminhtml_Block_Catalog_Search_Grid
      */
     protected function _prepareColumns()
@@ -83,6 +87,7 @@ class Neklo_Blog_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_G
 
     /**
      * Return row URL for js event handlers
+     *
      * @return string
      */
 
@@ -93,6 +98,7 @@ class Neklo_Blog_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_G
 
     /**
      * Grid url getter
+     *
      * @return string current grid url
      */
 

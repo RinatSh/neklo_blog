@@ -3,6 +3,7 @@
 /**
  * News List admin edit form container
  */
+
 class Neklo_Blog_Block_Adminhtml_News_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
 
@@ -19,9 +20,9 @@ class Neklo_Blog_Block_Adminhtml_News_Edit extends Mage_Adminhtml_Block_Widget_F
         if (Mage::helper('neklo_blog/admin')->isActionAllowed('save')) {
             $this->_updateButton('save', 'label', Mage::helper('neklo_blog')->__('Save News Item'));
             $this->_addButton('saveandcontinue', array(
-                'label' => Mage::helper('adminhtml')->__('Save and Continue Edit'),
+                'label'   => Mage::helper('adminhtml')->__('Save and Continue Edit'),
                 'onclick' => 'saveAndContinueEdit()',
-                'class' => 'save',
+                'class'   => 'save',
             ), -100);
         } else {
             $this->_removeButton('save');
@@ -47,6 +48,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit extends Mage_Adminhtml_Block_Widget_F
 
     /**
      * Retrieve text for header element depending on loaded page
+     *
      * @return string
      */
 

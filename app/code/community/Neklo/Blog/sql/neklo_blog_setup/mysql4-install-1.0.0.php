@@ -1,16 +1,18 @@
 <?php
 /**
  * News installation script
+ *
  * @var $installer Mage_Core_Model_Resource_Setup
  */
 
-
 $installer = $this;
+
 $installer->startSetup();
 
 /**
  * Create table 'neklo_blog_news'
  */
+
 $installer->run("
     CREATE TABLE IF NOT EXISTS `{$installer->getTable('neklo_blog/news')}` (
         `entity_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -26,4 +28,5 @@ $installer->run("
 ");
 
 $installer->endSetup();
+
 $installer->getTable('neklo_blog/news');

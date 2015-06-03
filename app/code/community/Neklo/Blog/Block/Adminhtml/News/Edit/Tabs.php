@@ -3,10 +3,13 @@
 /**
  * News List admin edit form tabs block
  */
+
 class Neklo_Blog_Block_Adminhtml_News_Edit_Tabs extends Mage_Adminhtml_Block_Widget_Tabs
 {
 
-    /** Initialize tabs and define tabs block settings */
+    /**
+     * Initialize tabs and define tabs block settings
+     */
 
     public function __construct()
     {

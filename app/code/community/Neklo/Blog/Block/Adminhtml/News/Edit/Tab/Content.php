@@ -1,6 +1,8 @@
 <?php
 
-/** News List admin edit form content tab */
+/**
+ * News List admin edit form content tab
+ */
 
 class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
     extends Mage_Adminhtml_Block_Widget_Form
@@ -9,6 +11,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
 
     /**
      * Load WYSIWYG on demand and prepare layout
+     *
      * @return Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
      */
 
@@ -23,15 +26,16 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
 
     /**
      * Prepares tab form
+     *
      * @return Mage_Adminhtml_Block_Widget_Form
      */
 
     protected function _prepareForm()
     {
         $model = Mage::helper('neklo_blog')->getNewsItemInstance();
-        /**
-         * Checking if user have permissions to save information
-         */
+
+         // Checking if user have permissions to save information
+
         if (Mage::helper('neklo_blog/admin')->isActionAllowed('save')) {
             $isElementDisabled = false;
         } else {
@@ -41,7 +45,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
         $form->setHtmlIdPrefix('news_content_');
         $fieldset = $form->addFieldset('content_fieldset', array(
             'legend' => Mage::helper('neklo_blog')->__('Content'),
-            'class' => 'fieldset-wide'
+            'class'  => 'fieldset-wide'
         ));
 
         $wysiwygConfig = Mage::getSingleton('cms/wysiwyg_config')->getConfig(array(
@@ -49,11 +53,11 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
         ));
 
         $contentField = $fieldset->addField('content', 'editor', array(
-            'name' => 'content',
-            'style' => 'height:36em;',
+            'name'     => 'content',
+            'style'    => 'height:36em;',
             'required' => true,
             'disabled' => $isElementDisabled,
-            'config' => $wysiwygConfig
+            'config'   => $wysiwygConfig
         ));
 
         // Setting custom renderer for content field to remove label column
@@ -69,6 +73,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
 
     /**
      * Prepare label for tab
+     *
      * @return string
      */
 
@@ -79,6 +84,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
 
     /**
      * Prepare title for tab
+     *
      * @return string
      */
 
@@ -89,6 +95,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
 
     /**
      * Returns status flag about this tab can be shown or not
+     *
      * @return true
      */
 
@@ -99,6 +106,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
 
     /**
      * Returns status flag about this tab hidden or not
+     *
      * @return true
      */
 

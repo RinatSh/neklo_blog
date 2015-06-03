@@ -1,6 +1,8 @@
 <?php
 
-/** News List admin edit form main tab */
+/**
+ * News List admin edit form main tab
+ */
 
 class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
     extends Mage_Adminhtml_Block_Widget_Form
@@ -9,6 +11,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
     /**
      * Prepare form elements for tab
+     *
      * @return Mage_Adminhtml_Block_Widget_Form
      */
 
@@ -16,7 +19,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
     {
         $model = Mage::helper('neklo_blog')->getNewsItemInstance();
 
-        /** Checking if user have permissions to save information */
+        // Checking if user have permissions to save information
 
         if (Mage::helper('neklo_blog/admin')->isActionAllowed('save')) {
             $isElementDisabled = false;
@@ -37,27 +40,27 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
         }
 
         $fieldset->addField('title', 'text', array(
-            'name' => 'title',
-            'label' => Mage::helper('neklo_blog')->__('News Title'),
-            'title' => Mage::helper('neklo_blog')->__('News Title'),
+            'name'     => 'title',
+            'label'    => Mage::helper('neklo_blog')->__('News Title'),
+            'title'    => Mage::helper('neklo_blog')->__('News Title'),
             'required' => true,
             'disabled' => $isElementDisabled
         ));
 
         $fieldset->addField('author', 'text', array(
-            'name' => 'author',
-            'label' => Mage::helper('neklo_blog')->__('Author'),
-            'title' => Mage::helper('neklo_blog')->__('Author'),
+            'name'     => 'author',
+            'label'    => Mage::helper('neklo_blog')->__('Author'),
+            'title'    => Mage::helper('neklo_blog')->__('Author'),
             'required' => true,
             'disabled' => $isElementDisabled
         ));
 
         $fieldset->addField('published_at', 'date', array(
-            'name' => 'published_at',
-            'format' => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
-            'image' => $this->getSkinUrl('images/grid-cal.gif'),
-            'label' => Mage::helper('neklo_blog')->__('Publishing Date'),
-            'title' => Mage::helper('neklo_blog')->__('Publishing Date'),
+            'name'     => 'published_at',
+            'format'   => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
+            'image'    => $this->getSkinUrl('images/grid-cal.gif'),
+            'label'    => Mage::helper('neklo_blog')->__('Publishing Date'),
+            'title'    => Mage::helper('neklo_blog')->__('Publishing Date'),
             'required' => true
         ));
 
@@ -70,6 +73,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
     /**
      * Prepare label for tab
+     *
      * @return string
      */
 
@@ -80,6 +84,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
     /**
      * Prepare title for tab
+     *
      * @return string
      */
 
@@ -90,6 +95,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
     /**
      * Returns status flag about this tab can be shown or not
+     *
      * @return true
      */
 
@@ -100,6 +106,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
     /**
      * Returns status flag about this tab hidden or not
+     *
      * @return true
      */
 

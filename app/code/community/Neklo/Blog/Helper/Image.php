@@ -2,8 +2,6 @@
 
 /**
  * News Image Helper
- *
- * @author Magento
  */
 
 class Neklo_Blog_Helper_Image extends Mage_Core_Helper_Abstract

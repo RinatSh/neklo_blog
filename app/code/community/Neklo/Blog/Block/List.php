@@ -3,16 +3,20 @@
 /**
  * News list block
  */
+
 class Neklo_Blog_Block_List extends Mage_Core_Block_Template
 {
     /**
      * News collection
+     *
      * @var Neklo_Blog_Model_Resource_News_Collection
      */
+
     protected $_newsCollection = null;
 
     /**
      * Retrieve news collection
+     *
      * @return Neklo_Blog_Model_Resource_News_Collection
      */
 
@@ -23,6 +27,7 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
 
     /**
      * Retrieve prepared news collection
+     *
      * @return Neklo_Blog_Model_Resource_News_Collection
      */
 
@@ -49,6 +54,7 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
 
     /**
      * Fetch  the current page for the news list
+     *
      * @return int
      */
 
@@ -59,8 +65,10 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
 
     /**
      * Get a pager
+     *
      * @return string|null
      */
+
     public function getPager()
     {
         $pager = $this->getChild('news_list_pager');
@@ -82,6 +90,7 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
      * @param integer $width
      * @return string|false
      */
+
     public function getImageUrl($item, $width)
     {
         return Mage::helper('neklo_blog/image')->resize($item, $width);

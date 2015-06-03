@@ -1,6 +1,8 @@
 <?php
 
-/** News List admin edit form image tab */
+/**
+ * News List admin edit form image tab
+ */
 
 class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
     extends Mage_Adminhtml_Block_Widget_Form
@@ -9,13 +11,14 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
 
     /**
      * Prepare form elements
+     *
      * @return Mage_Adminhtml_Block_Widget_Form
      */
 
     protected function _prepareForm()
     {
 
-        /** Checking if user have permissions to save information */
+        // Checking if user have permissions to save information
 
         if (Mage::helper('neklo_blog/admin')->isActionAllowed('save')) {
             $isElementDisabled = false;
@@ -32,9 +35,9 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
 
         $this->_addElementTypes($fieldset);
         $fieldset->addField('image', 'image', array(
-            'name' => 'image',
-            'label' => Mage::helper('neklo_blog')->__('Image'),
-            'title' => Mage::helper('neklo_blog')->__('Image'),
+            'name'     => 'image',
+            'label'    => Mage::helper('neklo_blog')->__('Image'),
+            'title'    => Mage::helper('neklo_blog')->__('Image'),
             'required' => false,
             'disabled' => $isElementDisabled
         ));
@@ -48,6 +51,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
 
     /**
      * Prepare label for tab
+     *
      * @return string
      */
 
@@ -58,6 +62,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
 
     /**
      * Prepare title for tab
+     *
      * @return string
      */
 
@@ -67,7 +72,8 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
     }
 
     /**
-     * Returns status flag about this tab can be showen or not
+     * Returns status flag about this tab can be shown or not
+     *
      * @return true
      */
 
@@ -78,6 +84,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
 
     /**
      * Returns status flag about this tab hidden or not
+     *
      * @return true
      */
 
@@ -88,6 +95,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
 
     /**
      * Retrieve predefined additional element types
+     *
      * @return array
      */
 

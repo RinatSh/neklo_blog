@@ -3,10 +3,12 @@
 /**
  * News Item block
  */
+
 class Neklo_Blog_Block_Item extends Mage_Core_Block_Template
 {
     /**
      * Current news item instance
+     *
      * @var Neklo_Blog_Model_News
      */
 
@@ -14,6 +16,7 @@ class Neklo_Blog_Block_Item extends Mage_Core_Block_Template
 
     /**
      * Return parameters for back url
+     *
      * @param array $additionalParams
      * @return array
      */
@@ -25,6 +28,7 @@ class Neklo_Blog_Block_Item extends Mage_Core_Block_Template
 
     /**
      * Return URL to the news list page
+     *
      * @return string
      */
 
