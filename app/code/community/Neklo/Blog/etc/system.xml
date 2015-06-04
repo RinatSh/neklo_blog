@@ -2,9 +2,9 @@
 
 <config>
     <sections>
-        <news>
+        <blog>
             <class>separator-top</class>
-            <label>News</label>
+            <label>Blog News</label>
             <tab>general</tab>
             <frontend_type>text</frontend_type>
             <sort_order>500</sort_order>
@@ -14,7 +14,7 @@
 
             <groups>
                 <view translate="label">
-                    <label>News View Settings</label>
+                    <label>Blog News View Settings</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>10</sort_order>
                     <show_in_default>1</show_in_default>
@@ -55,6 +55,6 @@
                     </fields>
                 </view>
             </groups>
-        </news>
+        </blog>
     </sections>
 </config>

@@ -40,16 +40,6 @@
                     <use>core_setup</use>
                 </connection>
             </neklo_blog_setup>
-            <neklo_blog_write>
-                <connection>
-                    <use>core_write</use>
-                </connection>
-            </neklo_blog_write>
-            <neklo_blog_read>
-                <connection>
-                    <use>core_read</use>
-                </connection>
-            </neklo_blog_read>
         </resources>
         <events>
             <before_news_item_display>
@@ -101,12 +91,12 @@
         </layout>
     </adminhtml>
     <default>
-        <news>
+        <blog>
             <view>
                 <enabled>1</enabled>
                 <items_per_page>20</items_per_page>
                 <days_difference>3</days_difference>
             </view>
-        </news>
+        </blog>
     </default>
 </config>

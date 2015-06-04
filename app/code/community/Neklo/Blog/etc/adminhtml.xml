@@ -19,7 +19,7 @@
         <resources>
             <admin>
                 <children>
-                    <news translate="title" module="neklo_blog">
+                    <blog translate="title" module="neklo_blog">
                         <title>News</title>
                         <sort_order>65</sort_order>
                         <children>
@@ -38,14 +38,14 @@
                                 </children>
                             </manage>
                         </children>
-                    </news>
+                    </blog>
                     <system>
                         <children>
                             <config>
                                 <children>
-                                    <news translate="title" module="neklo_blog">
+                                    <blog translate="title" module="neklo_blog">
                                         <title>News Management</title>
-                                    </news>
+                                    </blog>
                                 </children>
                             </config>
                         </children>
