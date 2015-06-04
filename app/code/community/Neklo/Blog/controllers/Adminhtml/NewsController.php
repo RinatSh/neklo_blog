@@ -20,12 +20,12 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
         $this->loadLayout()
             ->_setActiveMenu('news/manage')
             ->_addBreadcrumb(
-                Mage::helper('neklo_blog')->__('News'),
-                Mage::helper('neklo_blog')->__('News')
+                Mage::helper('neklo_blog/config')->__('News'),
+                Mage::helper('neklo_blog/config')->__('News')
             )
             ->_addBreadcrumb(
-                Mage::helper('neklo_blog')->__('Manage News'),
-                Mage::helper('neklo_blog')->__('Manage News')
+                Mage::helper('neklo_blog/config')->__('Manage News'),
+                Mage::helper('neklo_blog/config')->__('Manage News')
             );
 
         return $this;
@@ -80,19 +80,19 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
 
             if (!$model->getId()) {
                 $this->_getSession()->addError(
-                    Mage::helper('neklo_blog')->__('News item does not exist.')
+                    Mage::helper('neklo_blog/config')->__('News item does not exist.')
                 );
                 return $this->_redirect('*/*/');
             }
 
             // prepare title
             $this->_title($model->getTitle());
-            $breadCrumb = Mage::helper('neklo_blog')->__('Edit Item');
+            $breadCrumb = Mage::helper('neklo_blog/config')->__('Edit Item');
 
         } else {
 
-            $this->_title(Mage::helper('neklo_blog')->__('New Item'));
-            $breadCrumb = Mage::helper('neklo_blog')->__('New Item');
+            $this->_title(Mage::helper('neklo_blog/config')->__('New Item'));
+            $breadCrumb = Mage::helper('neklo_blog/config')->__('New Item');
 
         }
 
@@ -194,7 +194,7 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
                 // display success message
                 $this->_getSession()->addSuccess(
 
-                    Mage::helper('neklo_blog')->__('The news item has been saved.')
+                    Mage::helper('neklo_blog/config')->__('The news item has been saved.')
 
                 );
 
@@ -216,7 +216,7 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
                 $hasError = true;
 
                 $this->_getSession()->addException($e,
-                    Mage::helper('neklo_blog')->__('An error occurred while saving the news item.')
+                    Mage::helper('neklo_blog/config')->__('An error occurred while saving the news item.')
                 );
 
             }
@@ -255,7 +255,7 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
 
                 if (!$model->getId()) {
 
-                    Mage::throwException(Mage::helper('neklo_blog')->__('Unable to find a news item.'));
+                    Mage::throwException(Mage::helper('neklo_blog/config')->__('Unable to find a news item.'));
 
                 }
 
@@ -264,7 +264,7 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
                 // display success message
                 $this->_getSession()->addSuccess(
 
-                    Mage::helper('neklo_blog')->__('The news item has been deleted.')
+                    Mage::helper('neklo_blog/config')->__('The news item has been deleted.')
 
                 );
             } catch (Mage_Core_Exception $e) {
@@ -275,7 +275,7 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
 
                 $this->_getSession()->addException($e,
 
-                    Mage::helper('neklo_blog')->__('An error occurred while deleting the news item.')
+                    Mage::helper('neklo_blog/config')->__('An error occurred while deleting the news item.')
 
                 );
 

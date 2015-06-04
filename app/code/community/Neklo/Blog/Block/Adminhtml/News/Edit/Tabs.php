@@ -16,7 +16,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tabs extends Mage_Adminhtml_Block_Wid
         parent::__construct();
         $this->setId('page_tabs');
         $this->setDestElementId('edit_form');
-        $this->setTitle(Mage::helper('neklo_blog')->__('News Item Info'));
+        $this->setTitle(Mage::helper('neklo_blog/config')->__('News Item Info'));
     }
 
 }

@@ -17,20 +17,26 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
     protected function _prepareForm()
     {
-        $model = Mage::helper('neklo_blog')->getNewsItemInstance();
+        $model = Mage::helper('neklo_blog/config')->getNewsItemInstance();
 
         // Checking if user have permissions to save information
 
         if (Mage::helper('neklo_blog/admin')->isActionAllowed('save')) {
+
             $isElementDisabled = false;
+
         } else {
+
             $isElementDisabled = true;
+
         }
 
         $form = new Varien_Data_Form();
+
         $form->setHtmlIdPrefix('news_main_');
+
         $fieldset = $form->addFieldset('base_fieldset', array(
-            'legend' => Mage::helper('neklo_blog')->__('News Item Info')
+            'legend' => Mage::helper('neklo_blog/config')->__('News Item Info')
         ));
 
         if ($model->getId()) {
@@ -41,16 +47,16 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
         $fieldset->addField('title', 'text', array(
             'name'     => 'title',
-            'label'    => Mage::helper('neklo_blog')->__('News Title'),
-            'title'    => Mage::helper('neklo_blog')->__('News Title'),
+            'label'    => Mage::helper('neklo_blog/config')->__('News Title'),
+            'title'    => Mage::helper('neklo_blog/config')->__('News Title'),
             'required' => true,
             'disabled' => $isElementDisabled
         ));
 
         $fieldset->addField('author', 'text', array(
             'name'     => 'author',
-            'label'    => Mage::helper('neklo_blog')->__('Author'),
-            'title'    => Mage::helper('neklo_blog')->__('Author'),
+            'label'    => Mage::helper('neklo_blog/config')->__('Author'),
+            'title'    => Mage::helper('neklo_blog/config')->__('Author'),
             'required' => true,
             'disabled' => $isElementDisabled
         ));
@@ -59,8 +65,8 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
             'name'     => 'published_at',
             'format'   => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
             'image'    => $this->getSkinUrl('images/grid-cal.gif'),
-            'label'    => Mage::helper('neklo_blog')->__('Publishing Date'),
-            'title'    => Mage::helper('neklo_blog')->__('Publishing Date'),
+            'label'    => Mage::helper('neklo_blog/config')->__('Publishing Date'),
+            'title'    => Mage::helper('neklo_blog/config')->__('Publishing Date'),
             'required' => true
         ));
 
@@ -79,7 +85,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
     public function getTabLabel()
     {
-        return Mage::helper('neklo_blog')->__('News Info');
+        return Mage::helper('neklo_blog/config')->__('News Info');
     }
 
     /**
@@ -90,7 +96,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
     public function getTabTitle()
     {
-        return Mage::helper('neklo_blog')->__('News Info');
+        return Mage::helper('neklo_blog/config')->__('News Info');
     }
 
     /**

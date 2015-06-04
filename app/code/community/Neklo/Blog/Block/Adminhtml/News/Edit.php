@@ -18,7 +18,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit extends Mage_Adminhtml_Block_Widget_F
         $this->_controller = 'adminhtml_news';
         parent::__construct();
         if (Mage::helper('neklo_blog/admin')->isActionAllowed('save')) {
-            $this->_updateButton('save', 'label', Mage::helper('neklo_blog')->__('Save News Item'));
+            $this->_updateButton('save', 'label', Mage::helper('neklo_blog/config')->__('Save News Item'));
             $this->_addButton('saveandcontinue', array(
                 'label'   => Mage::helper('adminhtml')->__('Save and Continue Edit'),
                 'onclick' => 'saveAndContinueEdit()',
@@ -28,7 +28,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit extends Mage_Adminhtml_Block_Widget_F
             $this->_removeButton('save');
         }
         if (Mage::helper('neklo_blog/admin')->isActionAllowed('delete')) {
-            $this->_updateButton('delete', 'label', Mage::helper('neklo_blog')->__('Delete News Item'));
+            $this->_updateButton('delete', 'label', Mage::helper('neklo_blog/config')->__('Delete News Item'));
         } else {
             $this->_removeButton('delete');
         }
@@ -54,12 +54,12 @@ class Neklo_Blog_Block_Adminhtml_News_Edit extends Mage_Adminhtml_Block_Widget_F
 
     public function getHeaderText()
     {
-        $model = Mage::helper('neklo_blog')->getNewsItemInstance();
+        $model = Mage::helper('neklo_blog/config')->getNewsItemInstance();
         if ($model->getId()) {
-            return Mage::helper('neklo_blog')->__("Edit News Item '%s'",
+            return Mage::helper('neklo_blog/config')->__("Edit News Item '%s'",
                 $this->escapeHtml($model->getTitle()));
         } else {
-            return Mage::helper('neklo_blog')->__('New News Item');
+            return Mage::helper('neklo_blog/config')->__('New News Item');
         }
     }
 

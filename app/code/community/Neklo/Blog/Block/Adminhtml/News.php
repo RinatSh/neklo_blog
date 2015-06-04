@@ -20,7 +20,7 @@ class Neklo_Blog_Block_Adminhtml_News extends Mage_Adminhtml_Block_Widget_Grid_C
         parent::__construct();
 
         if (Mage::helper('neklo_blog/admin')->isActionAllowed('save')) {
-            $this->_updateButton('add', 'label', Mage::helper('neklo_blog')->__('Add New News'));
+            $this->_updateButton('add', 'label', Mage::helper('neklo_blog/config')->__('Add New News'));
         } else {
             $this->_removeButton('add');
         }
@@ -28,7 +28,7 @@ class Neklo_Blog_Block_Adminhtml_News extends Mage_Adminhtml_Block_Widget_Grid_C
         $this->addButton(
             'news_flush_images_cache',
             array(
-                'label'   => Mage::helper('neklo_blog')->__('Flush Images Cache'),
+                'label'   => Mage::helper('neklo_blog/config')->__('Flush Images Cache'),
                 'onclick' => 'setLocation(\'' . $this->getUrl('*/*/flush') . '\')',
             )
         );

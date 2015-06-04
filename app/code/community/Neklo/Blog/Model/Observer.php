@@ -23,9 +23,9 @@ class Neklo_Blog_Model_Observer
 
         $daysDifference = $currentDate->sub($newsCreatedAt)->getTimestamp() / (60 * 60 * 24);
 
-        if ($daysDifference < Mage::helper('neklo_blog')->getDaysDifference()) {
+        if ($daysDifference < Mage::helper('neklo_blog/config')->getDaysDifference()) {
 
-            Mage::getSingleton('core/session')->addSuccess(Mage::helper('neklo_blog')->__('Recently added'));
+            Mage::getSingleton('core/session')->addSuccess(Mage::helper('neklo_blog/config')->__('Recently added'));
 
         }
 

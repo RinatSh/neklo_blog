@@ -9,7 +9,7 @@
  */
 ?>
 
-<?php $_newsItem = $this->helper('neklo_blog')->getNewsItemInstance(); ?>
+<?php $_newsItem = $this->helper('neklo_blog/config')->getNewsItemInstance(); ?>
 <div id="news_item_messages"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 
 <div class="page-title">
@@ -30,7 +30,7 @@
 
     <div class="pager">
         <a href="<?php echo $this->getBackUrl() ?>">
-            <?php echo Mage::helper('neklo_blog')->__('Return to list') ?>
+            <?php echo Mage::helper('neklo_blog/config')->__('Return to list') ?>
         </a>
     </div>
 </div>

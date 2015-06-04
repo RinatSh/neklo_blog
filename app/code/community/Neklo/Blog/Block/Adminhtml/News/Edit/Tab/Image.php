@@ -21,30 +21,41 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
         // Checking if user have permissions to save information
 
         if (Mage::helper('neklo_blog/admin')->isActionAllowed('save')) {
+
             $isElementDisabled = false;
+
         } else {
+
             $isElementDisabled = true;
+
         }
 
         $form = new Varien_Data_Form();
+
         $form->setHtmlIdPrefix('news_image_');
-        $model = Mage::helper('neklo_blog')->getNewsItemInstance();
+
+        $model = Mage::helper('neklo_blog/config')->getNewsItemInstance();
+
         $fieldset = $form->addFieldset('image_fieldset', array(
-            'legend' => Mage::helper('neklo_blog')->__('Image Thumbnail'), 'class' => 'fieldset-wide'
+            'legend' => Mage::helper('neklo_blog/config')->__('Image Thumbnail'), 'class' => 'fieldset-wide'
         ));
 
         $this->_addElementTypes($fieldset);
+
         $fieldset->addField('image', 'image', array(
             'name'     => 'image',
-            'label'    => Mage::helper('neklo_blog')->__('Image'),
-            'title'    => Mage::helper('neklo_blog')->__('Image'),
+            'label'    => Mage::helper('neklo_blog/config')->__('Image'),
+            'title'    => Mage::helper('neklo_blog/config')->__('Image'),
             'required' => false,
             'disabled' => $isElementDisabled
         ));
 
         Mage::dispatchEvent('adminhtml_news_edit_tab_image_prepare_form', array('form' => $form));
+
         $form->setValues($model->getData());
+
         $this->setForm($form);
+
         return parent::_prepareForm();
 
     }
@@ -57,7 +68,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
 
     public function getTabLabel()
     {
-        return Mage::helper('neklo_blog')->__('Image Thumbnail');
+        return Mage::helper('neklo_blog/config')->__('Image Thumbnail');
     }
 
     /**
@@ -68,7 +79,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Image
 
     public function getTabTitle()
     {
-        return Mage::helper('neklo_blog')->__('Image Thumbnail');
+        return Mage::helper('neklo_blog/config')->__('Image Thumbnail');
     }
 
     /**

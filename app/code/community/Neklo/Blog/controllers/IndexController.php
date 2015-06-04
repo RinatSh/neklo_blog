@@ -15,7 +15,7 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
     {
         parent::preDispatch();
 
-        if(!Mage::helper('neklo_blog')->isEnabled()){
+        if(!Mage::helper('neklo_blog/config')->isEnabled()){
 
             $this->setFlag('','no-dispatch', true);
             $this->_redirect('noRoute');

@@ -41,27 +41,27 @@ class Neklo_Blog_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_G
     protected function _prepareColumns()
     {
         $this->addColumn('entity_id', array(
-            'header'    => Mage::helper('neklo_blog')->__('ID'),
+            'header'    => Mage::helper('neklo_blog/config')->__('ID'),
             'width'     => '50px',
             'index'     => 'entity_id',
         ));
         $this->addColumn('title', array(
-            'header'    => Mage::helper('neklo_blog')->__('News Title'),
+            'header'    => Mage::helper('neklo_blog/config')->__('News Title'),
             'index'     => 'title',
         ));
         $this->addColumn('author', array(
-            'header'    => Mage::helper('neklo_blog')->__('Author'),
+            'header'    => Mage::helper('neklo_blog/config')->__('Author'),
             'index'     => 'author',
         ));
         $this->addColumn('published_at', array(
-            'header'   => Mage::helper('neklo_blog')->__('Published On'),
+            'header'   => Mage::helper('neklo_blog/config')->__('Published On'),
             'sortable' => true,
             'width'    => '170px',
             'index'    => 'published_at',
             'type'     => 'date',
         ));
         $this->addColumn('created_at', array(
-            'header'   => Mage::helper('neklo_blog')->__('Created'),
+            'header'   => Mage::helper('neklo_blog/config')->__('Created'),
             'sortable' => true,
             'width'    => '170px',
             'index'    => 'created_at',
@@ -69,12 +69,12 @@ class Neklo_Blog_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_G
         ));
         $this->addColumn('action',
             array(
-                'header'    => Mage::helper('neklo_blog')->__('Action'),
+                'header'    => Mage::helper('neklo_blog/config')->__('Action'),
                 'width'     => '100px',
                 'type'      => 'action',
                 'getter'    => 'getId',
                 'actions'   => array(array(
-                    'caption' => Mage::helper('neklo_blog')->__('Edit'),
+                    'caption' => Mage::helper('neklo_blog/config')->__('Edit'),
                     'url'     => array('base' => '*/*/edit'),
                     'field'   => 'id'
                 )),

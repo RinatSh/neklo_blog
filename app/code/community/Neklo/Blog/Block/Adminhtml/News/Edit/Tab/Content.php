@@ -32,19 +32,26 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
 
     protected function _prepareForm()
     {
-        $model = Mage::helper('neklo_blog')->getNewsItemInstance();
+        $model = Mage::helper('neklo_blog/config')->getNewsItemInstance();
 
          // Checking if user have permissions to save information
 
         if (Mage::helper('neklo_blog/admin')->isActionAllowed('save')) {
+
             $isElementDisabled = false;
+
         } else {
+
             $isElementDisabled = true;
+
         }
+
         $form = new Varien_Data_Form();
+
         $form->setHtmlIdPrefix('news_content_');
+
         $fieldset = $form->addFieldset('content_fieldset', array(
-            'legend' => Mage::helper('neklo_blog')->__('Content'),
+            'legend' => Mage::helper('neklo_blog/config')->__('Content'),
             'class'  => 'fieldset-wide'
         ));
 
@@ -79,7 +86,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
 
     public function getTabLabel()
     {
-        return Mage::helper('neklo_blog')->__('Content');
+        return Mage::helper('neklo_blog/config')->__('Content');
     }
 
     /**
@@ -90,7 +97,7 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Content
 
     public function getTabTitle()
     {
-        return Mage::helper('neklo_blog')->__('Content');
+        return Mage::helper('neklo_blog/config')->__('Content');
     }
 
     /**

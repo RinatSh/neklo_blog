@@ -73,7 +73,7 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
     {
         $pager = $this->getChild('news_list_pager');
         if ($pager) {
-            $newsPerPage = Mage::helper('neklo_blog')->getNewsPerPage();
+            $newsPerPage = Mage::helper('neklo_blog/config')->getNewsPerPage();
             $pager->setAvailableLimit(array($newsPerPage => $newsPerPage));
             $pager->setTotalNum($this->getCollection()->getSize());
             $pager->setCollection($this->getCollection());
