@@ -49,7 +49,10 @@ class Neklo_Blog_Helper_Config extends Mage_Core_Helper_Data
     public function isEnabled($store = null)
     {
 
-        return Mage::getStoreConfigFlag(self::XML_PATH_ENABLED, $store);
+        $isEnabled = Mage::getStoreConfigFlag(self::XML_PATH_ENABLED, $store);
+        $isModuleEnabled = $this->isModuleEnabled();
+        $isModuleOutputEnabled = $this->isModuleOutputEnabled();
+        return $isEnabled && $isModuleOutputEnabled && $isModuleEnabled;
 
     }
 
