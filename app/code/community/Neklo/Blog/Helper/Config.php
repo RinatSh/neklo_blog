@@ -13,7 +13,7 @@ class Neklo_Blog_Helper_Config extends Mage_Core_Helper_Data
      * @var string
      */
 
-    const XML_PATH_ENABLED = 'news/view/enabled';
+    const XML_PATH_ENABLED = 'blog/view/enabled';
 
     /**
      * Path to store config where count of news posts per page is stored
@@ -21,7 +21,7 @@ class Neklo_Blog_Helper_Config extends Mage_Core_Helper_Data
      * @var string
      */
 
-    const XML_PATH_ITEMS_PER_PAGE = 'news/view/items_per_page';
+    const XML_PATH_ITEMS_PER_PAGE = 'blog/view/items_per_page';
 
     /**
      * Path to store config where count of days while news is still recently added is stored
@@ -29,7 +29,7 @@ class Neklo_Blog_Helper_Config extends Mage_Core_Helper_Data
      * @var string
      */
 
-    const XML_PATH_DAYS_DIFFERENCE = 'news/view/days_difference';
+    const XML_PATH_DAYS_DIFFERENCE = 'blog/view/days_difference';
 
     /**
      * News Item instance for lazy loading

@@ -91,12 +91,12 @@
         </layout>
     </adminhtml>
     <default>
-        <news>
+        <blog>
             <view>
                 <enabled>1</enabled>
                 <items_per_page>20</items_per_page>
                 <days_difference>3</days_difference>
             </view>
-        </news>
+        </blog>
     </default>
 </config>

@@ -16,11 +16,8 @@ class Neklo_Blog_Model_Observer
     public function beforeNewsDisplayed(Varien_Event_Observer $observer)
     {
         $newsItem = $observer->getEvent()->getNewsItem();
-
         $currentDate = Mage::app()->getLocale()->date();
-
         $newsCreatedAt = Mage::app()->getLocale()->date(strtotime($newsItem->getCreatedAt()));
-
         $daysDifference = $currentDate->sub($newsCreatedAt)->getTimestamp() / (60 * 60 * 24);
 
         if ($daysDifference < Mage::helper('neklo_blog/config')->getDaysDifference()) {

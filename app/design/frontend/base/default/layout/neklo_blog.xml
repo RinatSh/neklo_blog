@@ -3,7 +3,7 @@
 <layout version="0.1.0">
     <default>
         <reference name="footer_links">
-            <action method="addLink" translate="label title" module="neklo_blog" ifconfig="news/view/enabled">
+            <action method="addLink" translate="label title" module="neklo_blog" ifconfig="blog/view/enabled">
                 <label>News</label>
                 <url>news</url>
                 <title>News</title>
