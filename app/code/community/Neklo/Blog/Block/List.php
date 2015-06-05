@@ -60,7 +60,7 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
 
     public function getCurrentPage()
     {
-        return $this->getData('current_page') ? $this->getData('current_page') : 1;
+        return abs(intval(Mage::app()->getRequest()->getParam('p', 1)));
     }
 
     /**

@@ -35,15 +35,7 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
         $listBlock = $this->getLayout()->getBlock('news.list');
 
         if($listBlock){
-
-            $currentPage = abs(intval($this->getRequest()->getParam('p')));
-
-            if($currentPage < 1){
-                $currentPage = 1;
-            }
-
-            $listBlock->setCurrentPage($currentPage);
-
+            $listBlock->setCurrentPage($listBlock->getCurrentPage());
         }
 
         $this->renderLayout();
@@ -80,15 +72,14 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
         $this->loadLayout();
 
         $itemBlock = $this->getLayout()->getBlock('news.item');
-
         if ($itemBlock) {
 
             $listBlock = $this->getLayout()->getBlock('news.list');
 
             if ($listBlock) {
-                $page = (int)$listBlock->getCurrentPage() ? (int)$listBlock->getCurrentPage() : 1;
+               $page = $listBlock->getCurrentPage();
             } else {
-                $page = 1;
+               $page = 1;
             }
 
             $itemBlock->setPage($page);
