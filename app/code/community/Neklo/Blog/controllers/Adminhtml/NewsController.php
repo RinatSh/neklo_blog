@@ -8,6 +8,26 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
 {
 
     /**
+     * Instance news model
+     *
+     * @param string $idFieldName
+     * @return $this
+     */
+
+    protected function _initNewsAdmin($idFieldName = 'id')
+    {
+        $newsId = (int) $this->getRequest()->getParam($idFieldName);
+        $model = Mage::getModel('neklo_blog/news');
+
+        if ($newsId) {
+            $model->load($newsId);
+        }
+
+        Mage::register('manage_news', $model);
+        return $this;
+    }
+
+    /**
      * Init actions
      *
      * @return Neklo_Blog_Adminhtml_NewsController
@@ -66,12 +86,11 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
     {
         $this->_title($this->__('News'))
              ->_title($this->__('Manage News'));
-        // 1. instance news model
 
-        /* @var $model Neklo_Blog_Model_News */
-        $model = Mage::getModel('neklo_blog/news');
+        $this->_initNewsAdmin();
+        $model = Mage::registry('manage_news');
 
-        // 2. if exists id, check it and load data
+        // if exists id, check it and load data
         $newsId = $this->getRequest()->getParam('id');
 
         if ($newsId) {
@@ -99,7 +118,7 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
         // Init breadcrumbs
         $this->_initAction()->_addBreadcrumb($breadCrumb, $breadCrumb);
 
-        // 3. Set entered data if was error when we do save
+        //  Set entered data if was error when we do save
         $data = Mage::getSingleton('adminhtml/session')->getFormData(true);
 
         if (!empty($data)) {
@@ -240,6 +259,8 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
     public function deleteAction()
     {
 
+        $this->_initNewsAdmin();
+
         // check if we know what should be deleted
         $itemId = $this->getRequest()->getParam('id');
 
@@ -248,8 +269,7 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
             try {
 
                 // init model and delete
-                /** @var $model Neklo_Blog_Model_News */
-                $model = Mage::getModel('neklo_blog/news');
+                $model = Mage::registry('manage_news');
 
                 $model->load($itemId);
 
