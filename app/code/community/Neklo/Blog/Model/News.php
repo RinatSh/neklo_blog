@@ -29,8 +29,25 @@ class Neklo_Blog_Model_News extends Mage_Core_Model_Abstract
             //$this->setData('created_at', Varien_Date::now());
 
         }
-
         return $this;
+
+    }
+
+    /**
+     * Event before show news item on frontend
+     * If specified new post was added recently (term is defined in config) we'll see message about this on front-end.
+     */
+
+    public function isNew($createdAt)
+    {
+
+        $currentDate = Mage::app()->getLocale()->date();
+        $newsCreatedAt = Mage::app()->getLocale()->date(strtotime($createdAt));
+        $daysDifference = $currentDate->sub($newsCreatedAt)->getTimestamp() / (60 * 60 * 24);
+
+        if ($daysDifference < Mage::helper('neklo_blog/config')->getDaysDifference()) {
+            return true;
+        }
 
     }
 

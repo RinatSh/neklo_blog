@@ -41,16 +41,6 @@
                 </connection>
             </neklo_blog_setup>
         </resources>
-        <events>
-            <before_news_item_display>
-                <observers>
-                    <neklo_blog>
-                        <class>neklo_blog/observer</class>
-                        <method>beforeNewsDisplayed</method>
-                    </neklo_blog>
-                </observers>
-            </before_news_item_display>
-        </events>
     </global>
     <frontend>
         <routers>
@@ -93,7 +83,7 @@
     <default>
         <blog>
             <view>
-                <enabled>1</enabled>
+                <enabled>0</enabled>
                 <items_per_page>20</items_per_page>
                 <days_difference>3</days_difference>
             </view>
