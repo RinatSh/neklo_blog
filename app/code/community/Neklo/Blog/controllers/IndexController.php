@@ -8,6 +8,27 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
 {
 
     /**
+     * Object initialization
+     *
+     * @param string $idFieldName
+     * @return $this
+     */
+
+    protected function _initNews($idFieldName = 'id')
+    {
+        $newsId = (int) $this->getRequest()->getParam($idFieldName);
+        $model = Mage::getModel('neklo_blog/news');
+
+        if ($newsId) {
+            $model->load($newsId);
+        }
+
+        Mage::register('news_item', $model);
+        return $this;
+    }
+
+
+    /**
      * Pre dispatch action that allows to redirect to no route page in case of disabled extension through admin panel
      */
 
@@ -47,17 +68,9 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
 
     public function viewAction()
     {
-        $newsId = $this->getRequest()->getParam('id');
 
-        if (!$newsId) {
-
-            return $this->_forward('noRoute');
-
-        }
-
-        /** @var  $model Neklo_Blog_Model_News */
-        $model = Mage::getModel('neklo_blog/news');
-        $model->load($newsId);
+        $this->_initNews();
+        $model = Mage::registry('news_item');
 
         if (!$model->getId()) {
             return $this->_forward('noRoute');
@@ -67,7 +80,6 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
             Mage::getSingleton('core/session')->addSuccess(Mage::helper('neklo_blog/config')->__('Recently added'));
         }
 
-        Mage::register('news_item', $model);
         Mage::dispatchEvent('before_news_item_display', array('news_item' => $model));
         $this->loadLayout();
 
