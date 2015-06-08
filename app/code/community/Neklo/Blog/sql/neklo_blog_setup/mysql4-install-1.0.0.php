@@ -19,7 +19,7 @@ $installer->run("
         `title` VARCHAR(255) NOT NULL,
         `author` VARCHAR(63) NOT NULL,
         `content` TEXT NOT NULL,
-        `image` VARCHAR(255) NOT NULL,
+        `short` TEXT NOT NULL,
         `published_at` DATE NOT NULL,
         `created_at` TIMESTAMP NOT NULL,
         PRIMARY KEY (`entity_id`),

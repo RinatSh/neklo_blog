@@ -92,7 +92,6 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
                     'label'    => $this->__('Home'),
                     'title'    => $this->__('Home'),
                     'link'     => Mage::getBaseUrl(),
-                    'readonly' => true,
                 ));
                 $breadcrumbsBlock->addCrumb('news', array('label'=>$model->getTitle(), 'title'=>$model->getTitle()));
             }

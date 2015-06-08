@@ -24,10 +24,10 @@
             <block type="neklo_blog/adminhtml_news_edit_tabs" name="news_edit_tabs">
                 <block type="neklo_blog/adminhtml_news_edit_tab_main" name="news_edit_tab_main" />
                 <block type="neklo_blog/adminhtml_news_edit_tab_content" name="news_edit_tab_content" />
-                <block type="neklo_blog/adminhtml_news_edit_tab_image" name="news_edit_tab_image" />
+                <block type="neklo_blog/adminhtml_news_edit_tab_short" name="news_edit_tab_short" />
                 <action method="addTab"><name>main_section</name><block>news_edit_tab_main</block></action>
                 <action method="addTab"><name>content_section</name><block>news_edit_tab_content</block></action>
-                <action method="addTab"><name>image_section</name><block>news_edit_tab_image</block></action>
+                <action method="addTab"><name>short_section</name><block>news_edit_tab_short</block></action>
             </block>
         </reference>
     </adminhtml_news_edit>

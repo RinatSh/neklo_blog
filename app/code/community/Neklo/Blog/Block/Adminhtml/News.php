@@ -25,13 +25,6 @@ class Neklo_Blog_Block_Adminhtml_News extends Mage_Adminhtml_Block_Widget_Grid_C
             $this->_removeButton('add');
         }
 
-        $this->addButton(
-            'news_flush_images_cache',
-            array(
-                'label'   => Mage::helper('neklo_blog/config')->__('Flush Images Cache'),
-                'onclick' => 'setLocation(\'' . $this->getUrl('*/*/flush') . '\')',
-            )
-        );
     }
 
 }

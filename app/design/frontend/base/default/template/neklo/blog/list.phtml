@@ -27,8 +27,8 @@
                     <?php echo $this->escapeHtml($newsItem->getAuthor()) ?>
                 </div>
 
-                <?php if ($imageUrl = $this->getImageUrl($newsItem, 100)): ?>
-                    <p><img src="<?php echo $imageUrl ?>" alt="<?php echo $this->escapeHtml($newsItem->getTitle()); ?>" /></p>
+                <?php if ($newsItem->getShort()): ?>
+                    <p><?php echo $newsItem->getShort() ?></p>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>

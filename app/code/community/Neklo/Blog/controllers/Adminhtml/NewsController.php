@@ -163,49 +163,12 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
 
             }
 
-            // save image data and remove from data array
-            if (isset($data['image'])) {
-
-                $imageData = $data['image'];
-
-                unset($data['image']);
-
-            } else {
-
-                $imageData = array();
-
-            }
 
             $model->addData($data);
 
             try {
 
                 $hasError = false;
-
-                /* @var $imageHelper Neklo_Blog_Helper_Image */
-                $imageHelper = Mage::helper('neklo_blog/image');
-
-                // remove image
-                if (isset($imageData['delete']) && $model->getImage()) {
-
-                    $imageHelper->removeImage($model->getImage());
-                    $model->setImage(null);
-
-                }
-
-                // upload new image
-                $imageFile = $imageHelper->uploadImage('image');
-
-                if ($imageFile) {
-
-                    if ($model->getImage()) {
-
-                        $imageHelper->removeImage($model->getImage());
-
-                    }
-
-                    $model->setImage($imageFile);
-                }
 
                 // save the data
                 $model->save();
@@ -363,24 +326,5 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
 
     }
 
-    /**
-     * Flush News Posts Images Cache action
-     */
-
-    public function flushAction()
-    {
-        if (Mage::helper('neklo_blog/image')->flushImagesCache()) {
-
-            $this->_getSession()->addSuccess('Cache successfully flushed');
-
-        } else {
-
-            $this->_getSession()->addError('There was error during flushing cache');
-
-        }
-
-        $this->_forward('index');
-
-    }
 
 }

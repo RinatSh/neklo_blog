@@ -83,17 +83,5 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
         return null;
     }
 
-    /**
-     * Return URL for resized News Item image
-     *
-     * @param Neklo_Blog_Model_News $item
-     * @param integer $width
-     * @return string|false
-     */
-
-    public function getImageUrl($item, $width)
-    {
-        return Mage::helper('neklo_blog/image')->resize($item, $width);
-    }
 
 }
