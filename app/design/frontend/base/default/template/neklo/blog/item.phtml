@@ -12,6 +12,8 @@
 <?php $_newsItem = $this->helper('neklo_blog/config')->getNewsItemInstance(); ?>
 <div id="news_item_messages"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 
+<block type="page/html_breadcrumbs" name="breadcrumbs" as="breadcrumbs"/>
+
 <div class="page-title">
     <h1><?php echo $this->escapeHtml($_newsItem->getTitle()) ?></h1>
 

@@ -86,6 +86,18 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
         $itemBlock = $this->getLayout()->getBlock('news.item');
         if ($itemBlock) {
 
+            // add breadcrumbs
+            if ($breadcrumbsBlock = $this->getLayout()->getBlock('breadcrumbs')) {
+                $breadcrumbsBlock->addCrumb('home', array(
+                    'label'    => $this->__('Home'),
+                    'title'    => $this->__('Home'),
+                    'link'     => Mage::getBaseUrl(),
+                    'readonly' => true,
+                ));
+                $breadcrumbsBlock->addCrumb('news', array('label'=>$model->getTitle(), 'title'=>$model->getTitle()));
+            }
+
+
             $listBlock = $this->getLayout()->getBlock('news.list');
 
             if ($listBlock) {
