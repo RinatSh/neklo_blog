@@ -11,11 +11,11 @@
                     <action>adminhtml/news</action>
                     <sort_order>50</sort_order>
                 </manage>
-                <manage_category translite="title" module="neklo_blog">
-                    <title>Manage Category</title>
+                <category translite="title" module="neklo_blog">
+                    <title>Manage Categories</title>
                     <action>adminhtml/category</action>
                     <sort_order>60</sort_order>
-                </manage_category>
+                </category>
             </children>
         </blog>
     </menu>

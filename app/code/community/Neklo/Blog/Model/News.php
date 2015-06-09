@@ -26,7 +26,7 @@ class Neklo_Blog_Model_News extends Mage_Core_Model_Abstract
 
         if ($this->_isObjectNew) {
 
-            //$this->setData('created_at', Varien_Date::now());
+            $this->setData('created_at', date(Varien_Date::DATETIME_INTERNAL_FORMAT, time()));
 
         }
         return $this;

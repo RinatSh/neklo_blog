@@ -31,6 +31,17 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
         }
 
+        $_menus = Mage::getSingleton('neklo_blog/category')->getCollection();
+        foreach($_menus as $item)
+        {
+            if($item->getParent == NULL){
+                $_menuItems[] = array(
+                    'value'     => $item->getId(),
+                    'label'     => $item->getTitle(),
+                );
+            }
+        }
+
         $form = new Varien_Data_Form();
 
         $form->setHtmlIdPrefix('news_main_');
@@ -63,11 +74,21 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
 
         $fieldset->addField('published_at', 'date', array(
             'name'     => 'published_at',
-            'format'   => Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT),
+            'format'   => Varien_Date::DATE_INTERNAL_FORMAT,
             'image'    => $this->getSkinUrl('images/grid-cal.gif'),
             'label'    => Mage::helper('neklo_blog/config')->__('Publishing Date'),
             'title'    => Mage::helper('neklo_blog/config')->__('Publishing Date'),
             'required' => true
+        ));
+
+        $fieldset->addField('category', 'select', array(
+            'name'      => 'category',
+            'label'     => Mage::helper('neklo_blog/config')->__('Category'),
+            'title'     => Mage::helper('neklo_blog/config')->__('Category'),
+            'required'  => true,
+            'disabled' => $isElementDisabled,
+            'class'     => 'HideIt',
+            'values'    => $_menuItems,
         ));
 
         Mage::dispatchEvent('adminhtml_news_edit_tab_main_prepare_form', array('form' => $form));

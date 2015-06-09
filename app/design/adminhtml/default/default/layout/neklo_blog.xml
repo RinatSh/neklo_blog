@@ -31,4 +31,25 @@
             </block>
         </reference>
     </adminhtml_news_edit>
+
+    <adminhtml_category_index>
+        <reference name="content">
+            <block type="neklo_blog/adminhtml_category" name="category" />
+        </reference>
+    </adminhtml_category_index>
+
+    <adminhtml_category_grid>
+        <block type="neklo_blog/adminhtml_category_grid" name="root" />
+    </adminhtml_category_grid>
+
+
+    <adminhtml_category_edit>
+        <update handle="editor" />
+
+        <reference name="content">
+            <block type="neklo_blog/adminhtml_category_edit" name="category_edit"/>
+        </reference>
+
+    </adminhtml_category_edit>
+
 </layout>

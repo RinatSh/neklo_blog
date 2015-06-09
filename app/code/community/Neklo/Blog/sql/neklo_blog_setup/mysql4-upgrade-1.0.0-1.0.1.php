@@ -17,9 +17,8 @@ $installer->run("
     CREATE TABLE IF NOT EXISTS `{$installer->getTable('neklo_blog/category')}` (
         `category_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
         `title` VARCHAR(255) NOT NULL,
-        `identifier` VARCHAR(255) NOT NULL,
+        `url_key` VARCHAR(255) NOT NULL,
         `sort_order` INT UNSIGNED NOT NULL,
-        `store_id` INT UNSIGNED NOT NULL,
         `meta_keywords` VARCHAR(255) NOT NULL,
         `meta_description` TEXT NOT NULL,
         PRIMARY KEY (`category_id`)

@@ -24,9 +24,6 @@
 </div>
 
 <div class="news_item_view">
-    <?php if ($imageUrl = $this->getImageUrl($_newsItem, 400)): ?>
-        <p><img src="<?php echo $imageUrl ?>" alt="<?php echo $this->escapeHtml($_newsItem->getTitle()) ?>" /></p>
-    <?php endif; ?>
 
     <div class="news_item_content"><?php echo $_newsItem->getContent() ?></div>
 
