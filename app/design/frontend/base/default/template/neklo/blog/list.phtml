@@ -30,6 +30,13 @@
                 <?php if ($newsItem->getShort()): ?>
                     <p><?php echo $newsItem->getShort() ?></p>
                 <?php endif; ?>
+
+                <div class="news_item_subtitle">
+                    <p><b>Category:</b><a href="<?php echo $this->getItemUrlCategory($newsItem) ?>">
+                            <?php echo $this->getItemCategory($newsItem->getCategory()) ?>
+                        </a></p>
+                </div>
+
             </div>
         <?php endforeach; ?>
     </div>

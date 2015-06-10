@@ -84,4 +84,22 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
     }
 
 
+    public function getItemUrlCategory($newsItem)
+    {
+
+        return $this->getUrl('*/*/category', array('id' => $newsItem->getId()));
+
+    }
+
+    public function getItemCategory($categoryId)
+    {
+        $model = Mage::getModel('neklo_blog/category');
+
+        if ($categoryId) {
+            $model->load($categoryId);
+        }
+
+        return $model->getTitle();
+    }
+
 }

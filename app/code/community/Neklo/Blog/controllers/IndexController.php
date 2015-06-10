@@ -75,7 +75,9 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
         $listBlock = $this->getLayout()->getBlock('news.list');
 
         if($listBlock){
+
             $listBlock->setCurrentPage($listBlock->getCurrentPage());
+
         }
 
         $this->renderLayout();
@@ -115,7 +117,6 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
                 $breadcrumbsBlock->addCrumb('news', array('label'=>$model->getTitle(), 'title'=>$model->getTitle()));
             }
 
-
             $listBlock = $this->getLayout()->getBlock('news.list');
 
             if ($listBlock) {
@@ -137,7 +138,17 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
      */
     public function categoryAction()
     {
-        
+        $this->loadLayout();
+
+        $listBlock = $this->getLayout()->getBlock('news.list');
+
+        if($listBlock){
+
+            $listBlock->setCurrentPage($listBlock->getCurrentPage());
+        }
+
+        $this->renderLayout();
+
 
     }
 
