@@ -109,4 +109,30 @@ class Neklo_Blog_Helper_Config extends Mage_Core_Helper_Data
 
     }
 
+    /**
+     * Return current news item instance from the Registry
+     *
+     * @return Neklo_Blog_Model_Category
+     */
+
+    public function getNewsCategoryInstance()
+    {
+
+        if (!$this->_newsItemInstance) {
+
+            $this->_newsItemInstance = Mage::registry('news_category');
+
+            if (!$this->_newsItemInstance) {
+
+                Mage::throwException($this->__('News item instance does not exist in Registry'));
+
+            }
+
+        }
+
+        return $this->_newsItemInstance;
+
+    }
+
+
 }

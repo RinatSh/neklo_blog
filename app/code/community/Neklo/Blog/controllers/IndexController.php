@@ -27,6 +27,25 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
         return $this;
     }
 
+    /**
+     * Object initialization category
+     *
+     * @param string $idFieldName
+     * @return $this
+     */
+
+    protected function _initNewsCategory($idFieldName = 'id')
+    {
+        $categoryId = (int) $this->getRequest()->getParam($idFieldName);
+        $model = Mage::getModel('neklo_blog/category');
+
+        if ($categoryId) {
+            $model->load($categoryId);
+        }
+
+        Mage::register('news_category', $model);
+        return $this;
+    }
 
     /**
      * Pre dispatch action that allows to redirect to no route page in case of disabled extension through admin panel
@@ -112,5 +131,15 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
         $this->renderLayout();
 
     }
+
+    /**
+     * Index category action
+     */
+    public function categoryAction()
+    {
+        
+
+    }
+
 
 }

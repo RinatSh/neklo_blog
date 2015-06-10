@@ -3,7 +3,6 @@
 /**
  * Category controller
  */
-
 class Neklo_Blog_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_Action
 {
 
@@ -93,27 +92,19 @@ class Neklo_Blog_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_
         // if exists id, check it and load data
         $categoryId = $this->getRequest()->getParam('id');
 
-        if ($categoryId) {
+        $model->load($categoryId);
 
-            $model->load($categoryId);
-
-            if (!$model->getId()) {
-                $this->_getSession()->addError(
-                    Mage::helper('neklo_blog/config')->__('News category item does not exist.')
-                );
-                return $this->_redirect('*/*/');
-            }
-
-            // prepare title
-            $this->_title($model->getTitle());
-            $breadCrumb = Mage::helper('neklo_blog/config')->__('Edit Item');
-
-        } else {
-
-            $this->_title(Mage::helper('neklo_blog/config')->__('New Item'));
-            $breadCrumb = Mage::helper('neklo_blog/config')->__('New Item');
-
+        if (!$model->getId()) {
+            $this->_getSession()->addError(
+                Mage::helper('neklo_blog/config')->__('News category item does not exist.')
+            );
+            return $this->_redirect('*/*/');
         }
+
+        // prepare title
+        $this->_title($model->getTitle());
+        $breadCrumb = Mage::helper('neklo_blog/config')->__('Edit Item');
+
 
         // Init breadcrumbs
         $this->_initAction()->_addBreadcrumb($breadCrumb, $breadCrumb);
@@ -126,7 +117,7 @@ class Neklo_Blog_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_
         }
 
         // 4. Register model to use later in blocks
-        Mage::register('manage_category', $model);
+        Mage::register('news_item', $model);
 
         // 5. render layout
         $this->renderLayout();
@@ -147,8 +138,6 @@ class Neklo_Blog_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_
         $data = $this->getRequest()->getPost();
 
         if ($data) {
-
-            $data = $this->_filterPostData($data);
 
             // init model and set data
             /* @var $model Neklo_Blog_Model_Category */
