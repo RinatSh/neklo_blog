@@ -136,8 +136,20 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
     /**
      * Index category action
      */
+
     public function categoryAction()
     {
+
+        $categoryId = $this->getRequest()->getParam('id');
+
+        $model = Mage::getModel('neklo_blog/category');
+        $model->load($categoryId);
+
+        if(!$model->getId()){
+            return $this->_forward('noRoute');
+        }
+
+
         $this->loadLayout();
 
         $listBlock = $this->getLayout()->getBlock('news.list');
@@ -145,6 +157,7 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
         if($listBlock){
 
             $listBlock->setCurrentPage($listBlock->getCurrentPage());
+
         }
 
         $this->renderLayout();

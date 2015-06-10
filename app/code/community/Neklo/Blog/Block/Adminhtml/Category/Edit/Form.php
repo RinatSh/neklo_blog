@@ -15,17 +15,6 @@ class Neklo_Blog_Block_Adminhtml_Category_Edit_Form extends Mage_Adminhtml_Block
 
     protected function _prepareForm()
     {
-
-        if (Mage::helper('neklo_blog/admin')->isActionAllowed('save')) {
-
-            $isElementDisabled = false;
-
-        } else {
-
-            $isElementDisabled = true;
-
-        }
-
         $model = Mage::helper('neklo_blog/config')->getNewsCategoryInstance();
         /**
          * Checking if user have permission to save information
