@@ -66,7 +66,7 @@ class Neklo_Blog_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
 
         $news   = Mage::getModel('neklo_blog/news');
 
-        $newsId = $news->checkSeoUrl($identifier_url);
+        $newsId = $news->checkIdentifierUrl($identifier_url);
 
         $request->setModuleName('blog')
             ->setControllerName('news')

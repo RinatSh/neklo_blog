@@ -51,4 +51,15 @@ class Neklo_Blog_Model_News extends Mage_Core_Model_Abstract
 
     }
 
+    /**
+     * Check if page identifier exist for specific store
+     * return page id if page exists
+     *
+     * @param string $identifier_url
+     */
+    public function checkIdentifierUrl($identifier_url)
+    {
+        return $this->_getResource()->checkIdentifierUrl($identifier_url);
+    }
+
 }
