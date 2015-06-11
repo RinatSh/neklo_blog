@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Neklo_Blog_Model_Resource_News_Category
+ * Class Neklo_Blog_Model_Resource_Category_Collection
  */
 
 class Neklo_Blog_Model_Resource_Category_Collection extends Mage_Core_Model_Mysql4_Collection_Abstract

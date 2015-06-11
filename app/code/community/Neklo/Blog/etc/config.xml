@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Neklo_Blog>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </Neklo_Blog>
     </modules>
     <global>
@@ -20,6 +20,9 @@
                     <category>
                         <table>neklo_blog_category</table>
                     </category>
+                    <like>
+                        <table>neklo_blog_like</table>
+                    </like>
                 </entities>
             </neklo_blog_news>
         </models>
