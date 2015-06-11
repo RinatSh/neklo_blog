@@ -3,7 +3,6 @@
 /**
  * Class  Neklo_Blog_Model_Resource_News
  */
-
 class Neklo_Blog_Model_Resource_News extends Mage_Core_Model_Mysql4_Abstract
 {
 
@@ -19,7 +18,6 @@ class Neklo_Blog_Model_Resource_News extends Mage_Core_Model_Mysql4_Abstract
     }
 
 
-
     /**
      * Check if
      *
@@ -28,10 +26,11 @@ class Neklo_Blog_Model_Resource_News extends Mage_Core_Model_Mysql4_Abstract
      */
     public function checkIdentifierUrl($identifier_url)
     {
-        $select = $this->_getReadAdapter()->select()->from( $this->getMainTable(), 'entity_id')
-            ->where('identifier_url=?', $identifier_url);
 
-        return $this->_getReadAdapter()->fetchOne($select);
+        $model = Mage::getModel('neklo_blog/news');
+        $model->load($identifier_url, 'identifier_url');
+
+        return $model->getId();
     }
 
 

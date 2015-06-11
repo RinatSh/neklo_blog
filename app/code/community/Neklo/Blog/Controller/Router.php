@@ -44,7 +44,7 @@ class Neklo_Blog_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
         /* @var $front Mage_Core_Controller_Varien_Front */
         $front = $observer->getEvent()->getFront();
 
-        $front->addRouter('blog', $this);
+        $front->addRouter('neklo_blog', $this);
     }
 
     /**
@@ -68,8 +68,12 @@ class Neklo_Blog_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
 
         $newsId = $news->checkIdentifierUrl($identifier_url);
 
-        $request->setModuleName('blog')
-            ->setControllerName('news')
+        if (!$newsId) {
+            return false;
+        }
+
+        $request->setModuleName('neklo_blog')
+            ->setControllerName('index')
             ->setActionName('view')
             ->setParam('id', $newsId);
 
