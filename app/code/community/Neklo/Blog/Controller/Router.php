@@ -72,7 +72,7 @@ class Neklo_Blog_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
             return false;
         }
 
-        $request->setModuleName('neklo_blog')
+        $request->setModuleName('news')
             ->setControllerName('index')
             ->setActionName('view')
             ->setParam('id', $newsId);

@@ -59,7 +59,13 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
 
     public function getItemUrl($newsItem)
     {
-        return $this->getUrl('*/*/view', array('id' => $newsItem->getId()));
+
+        if($newsItem->getIdentifierUrl()){
+            return $this->getUrl($newsItem->getIdentifierUrl());
+        } else {
+            return $this->getUrl('*/*/view', array('id' => $newsItem->getId()));
+        }
+
     }
 
     /**
