@@ -28,6 +28,16 @@
                 <class>Neklo_Blog_Block</class>
             </neklo_blog>
         </blocks>
+        <events>
+            <controller_front_init_routers>
+                <observers>
+                    <neklo_blog>
+                        <class>Neklo_Blog_Controller_Router</class>
+                        <method>initControllerRouters</method>
+                    </neklo_blog>
+                </observers>
+            </controller_front_init_routers>
+        </events>
         <helpers>
             <neklo_blog>
                 <class>Neklo_Blog_Helper</class>
