@@ -62,11 +62,11 @@ class Neklo_Blog_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
             exit;
         }
 
-        $identifier = trim($request->getPathInfo(), '/');
+        $identifier_url = trim($request->getPathInfo(), '/');
 
         $news   = Mage::getModel('neklo_blog/news');
 
-        $newsId = $news->checkSeoUrl($identifier);
+        $newsId = $news->checkSeoUrl($identifier_url);
 
         $request->setModuleName('blog')
             ->setControllerName('news')
@@ -75,7 +75,7 @@ class Neklo_Blog_Controller_Router extends Mage_Core_Controller_Varien_Router_Ab
 
         $request->setAlias(
             Mage_Core_Model_Url_Rewrite::REWRITE_REQUEST_PATH_ALIAS,
-            $identifier
+            $identifier_url
         );
 
         return true;

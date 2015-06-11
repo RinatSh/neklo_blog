@@ -45,14 +45,22 @@ class Neklo_Blog_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_G
             'width'     => '50px',
             'index'     => 'entity_id',
         ));
+
         $this->addColumn('title', array(
             'header'    => Mage::helper('neklo_blog/config')->__('News Title'),
             'index'     => 'title',
         ));
+
         $this->addColumn('author', array(
             'header'    => Mage::helper('neklo_blog/config')->__('Author'),
             'index'     => 'author',
         ));
+
+        $this->addColumn('identifier_url', array(
+            'header'    => Mage::helper('neklo_blog/config')->__('Url'),
+            'index'     => 'identifier_url',
+        ));
+
         $this->addColumn('published_at', array(
             'header'   => Mage::helper('neklo_blog/config')->__('Published On'),
             'sortable' => true,
@@ -60,6 +68,7 @@ class Neklo_Blog_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_G
             'index'    => 'published_at',
             'type'     => 'date',
         ));
+
         $this->addColumn('created_at', array(
             'header'   => Mage::helper('neklo_blog/config')->__('Created'),
             'sortable' => true,
@@ -67,6 +76,7 @@ class Neklo_Blog_Block_Adminhtml_News_Grid extends Mage_Adminhtml_Block_Widget_G
             'index'    => 'created_at',
             'type'     => 'datetime',
         ));
+
         $this->addColumn('action',
             array(
                 'header'    => Mage::helper('neklo_blog/config')->__('Action'),

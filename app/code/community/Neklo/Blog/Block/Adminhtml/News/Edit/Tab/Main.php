@@ -64,6 +64,15 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
             'disabled' => $isElementDisabled
         ));
 
+        $fieldset->addField('identifier_url', 'text', array(
+            'name'     => 'identifier_url',
+            'label'    => Mage::helper('neklo_blog/config')->__('News Url'),
+            'title'    => Mage::helper('neklo_blog/config')->__('News Url'),
+            'required' => true,
+            'disabled' => $isElementDisabled
+        ));
+
+
         $fieldset->addField('author', 'text', array(
             'name'     => 'author',
             'label'    => Mage::helper('neklo_blog/config')->__('Author'),
