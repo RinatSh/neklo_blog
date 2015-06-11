@@ -27,6 +27,16 @@
 
     <div class="news_item_content"><?php echo $_newsItem->getContent() ?></div>
 
+    <form id="addTagForm" action="" method="get" class="block">
+        <div class="actions">
+            <button class="button btn-cart" title="<?php echo $this->__('Like !') ?>" type="button">
+            <span>
+                <span><?php echo $this->__('Like !') ?></span>
+            </span>
+            </button>
+        </div>
+    </form>
+
     <div class="pager">
         <a href="<?php echo $this->getBackUrl() ?>">
             <?php echo Mage::helper('neklo_blog/config')->__('Return to list') ?>
