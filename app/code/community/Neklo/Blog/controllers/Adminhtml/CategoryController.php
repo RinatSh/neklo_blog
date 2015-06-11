@@ -92,19 +92,27 @@ class Neklo_Blog_Adminhtml_CategoryController extends Mage_Adminhtml_Controller_
         // if exists id, check it and load data
         $categoryId = $this->getRequest()->getParam('id');
 
-        $model->load($categoryId);
+        if ($categoryId) {
 
-        if (!$model->getId()) {
-            $this->_getSession()->addError(
-                Mage::helper('neklo_blog/config')->__('News category item does not exist.')
-            );
-            return $this->_redirect('*/*/');
+            $model->load($categoryId);
+
+            if (!$model->getId()) {
+                $this->_getSession()->addError(
+                    Mage::helper('neklo_blog/config')->__('News category item does not exist.')
+                );
+                return $this->_redirect('*/*/');
+            }
+
+            // prepare title
+            $this->_title($model->getTitle());
+            $breadCrumb = Mage::helper('neklo_blog/config')->__('Edit Item Category');
+
+        } else {
+
+            $this->_title(Mage::helper('neklo_blog/config')->__('New Item Category'));
+            $breadCrumb = Mage::helper('neklo_blog/config')->__('New Item Category');
+
         }
-
-        // prepare title
-        $this->_title($model->getTitle());
-        $breadCrumb = Mage::helper('neklo_blog/config')->__('Edit Item');
-
 
         // Init breadcrumbs
         $this->_initAction()->_addBreadcrumb($breadCrumb, $breadCrumb);
