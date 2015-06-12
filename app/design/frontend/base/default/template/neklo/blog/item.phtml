@@ -27,9 +27,9 @@
 
     <div class="news_item_content"><?php echo $_newsItem->getContent() ?></div>
 
-    <form id="addTagForm" action="" method="get" class="block">
+    <form action="<?php echo $this->getLikeActionUrl(); ?>" method="post" class="block">
         <div class="actions">
-            <button class="button btn-cart" title="<?php echo $this->__('Like !') ?>" type="button">
+            <button class="button btn-cart" title="<?php echo $this->__('Like !') ?>" type="submit">
             <span>
                 <span><?php echo $this->__('Like !') ?></span>
             </span>

@@ -37,5 +37,24 @@ class Neklo_Blog_Block_Item extends Mage_Core_Block_Template
         return $this->getUrl('*/', array('_query' => $this->_getBackUrlQueryParams()));
     }
 
+    /**
+     * Get like URL
+     *
+     * @return string
+     */
+
+    public function getLikeActionUrl()
+    {
+        $newsItem = Mage::helper('neklo_blog/config')->getNewsItemInstance();
+
+        if($newsItem){
+
+            return $this->getUrl('*/*/like', array('id' => $newsItem->getId()));
+
+        }
+
+
+    }
+
 
 }

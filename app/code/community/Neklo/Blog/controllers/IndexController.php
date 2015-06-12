@@ -165,5 +165,85 @@ class Neklo_Blog_IndexController extends Mage_Core_Controller_Front_Action
 
     }
 
+    /**
+     * Index like action
+     */
+
+    public function likeAction()
+    {
+
+        $this->_initNews();
+        $model = Mage::registry('news_item');
+        $newsId = $model->getId();
+
+        if (!$newsId) {
+            return $this->_forward('noRoute');
+        }
+
+        $customer = Mage::getSingleton('customer/session');
+
+        if($customer->isLoggedIn()) {
+
+            $customerId =  $customer->getCustomerId();
+
+
+            if(!$this->_checkWriteLike($customerId, $newsId)){
+
+                $dataLike = array(
+                    'customer_id' => $customerId,
+                    'news_id'     => $newsId
+                );
+
+                $insertLike = Mage::getModel('neklo_blog/like')->setData($dataLike);
+                $insertLike->save();
+
+            }
+
+
+            if($model->getIdentifierUrl()){
+
+               $this->_redirect($model->getIdentifierUrl());
+
+            } else {
+
+                $this->_redirect('*/*/view', array('id' => $model->getId()));
+
+            }
+
+
+        } else {
+
+            /* @var $session Mage_Customer_Model_Session */
+            $session = Mage::getSingleton('customer/session');
+            $session->setAfterAuthUrl(Mage::getUrl('*/*/like', array('id' => $model->getId())));
+            $this->_redirect('customer/account');
+
+        }
+
+
+    }
+
+    /**
+     * Verification
+     *
+     * @param $customerId
+     * @param $newsId
+     * @return bool
+     */
+
+    protected function _checkWriteLike($customerId, $newsId){
+
+        /** @var @var $model Neklo_Blog_Model_Like */
+        $modelLike = Mage::getModel('neklo_blog/like')->getCollection();
+
+        $modelLike->addFieldToFilter('customer_id' , $customerId)->addFieldToFilter('news_id' , $newsId);
+
+        if($modelLike->getData('like_id')){
+            return true;
+        }
+
+    }
+
+
 
 }
