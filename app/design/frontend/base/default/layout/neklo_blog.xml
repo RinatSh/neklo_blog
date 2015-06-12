@@ -56,4 +56,24 @@
         </reference>
     </neklo_blog_index_category>
 
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink">
+                <name>neklo_blog_customer_tab</name>
+                <path>neklo_blog/customer</path>
+                <label>My Liked News</label>
+            </action>
+        </reference>
+    </customer_account>
+
+    <neklo_blog_customer_index translate="label">
+        <label>My Liked News</label>
+        <update handle="customer_account" />
+        <reference name="my.account.wrapper">
+            <block type="neklo_blog/customer" name="customer.news.like" template="neklo/blog/customer.phtml" />
+            <block type="customer/account_dashboard" name="customer.account.link.back"
+                   template="customer/account/link/back.phtml"/>
+        </reference>
+    </neklo_blog_customer_index>
+
 </layout>

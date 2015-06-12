@@ -1,0 +1,29 @@
+<div class="page-title">
+    <h1><?php echo $this->__('My Liked News') ?></h1>
+</div>
+<?php if ($newsLike = $this->getCollection()): ?>
+
+    <div class="news_list_view">
+
+        <?php foreach ($newsLike as $newsItemLike): ?>
+
+            <div id="item_<?php echo $newsItemLike->getId() ?>" class="news_list_item">
+                <h2>
+                    <a href="<?php echo $this->getItemUrl($newsItemLike) ?>">
+                        <?php echo $this->escapeHtml($newsItemLike->getTitle()) ?>
+                    </a>
+                </h2>
+
+                <div class="news_item_subtitle">
+                    <?php echo $this->formatDate($newsItemLike->getTimePublished(), 'medium') ?> |
+                    <?php echo $this->escapeHtml($newsItemLike->getAuthor()) ?>
+                </div>
+            </div>
+
+        <?php endforeach; ?>
+
+    </div>
+
+<?php else: ?>
+    <p><?php echo $this->__('You have placed no like news.'); ?></p>
+<?php endif; ?>
