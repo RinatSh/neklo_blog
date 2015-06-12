@@ -37,6 +37,15 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
             $this->_newsCollection = $this->_getCollection();
             $this->_newsCollection->prepareForList($this->getCurrentPage());
 
+            $currentDate = date('Y-m-d');
+
+            $this->_newsCollection->addFieldToFilter(
+                'published_at',
+                array(
+                    'lteq'=>$currentDate
+                )
+            );
+
             $categoryId = $this->getRequest()->getParam('id');
             $model = Mage::getModel('neklo_blog/category');
             $model->load($categoryId);
