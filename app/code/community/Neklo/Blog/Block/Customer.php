@@ -6,16 +6,6 @@
 class Neklo_Blog_Block_Customer extends Mage_Core_Block_Template
 {
 
-    public function getCustomerLikeNews()
-    {
-        $customer = Mage::getSingleton('customer/session')->getCustomer();
-        if ($customer->getId()) {
-            return $customer;
-        }
-
-        return false;
-    }
-
     /**
      * Collection like customer news
      *
