@@ -108,21 +108,58 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
         return null;
     }
 
+    /**
+     * Return URL category
+     *
+     * @param $newsItem
+     * @return string
+     */
 
     public function getItemUrlCategory($newsItem)
     {
         return $this->getUrl('*/*/category', array('id' => $newsItem->getCategory()));
     }
 
+    /**
+     * Category on the list
+     *
+     * @param $categoryId
+     * @return mixed
+     */
+
     public function getItemCategory($categoryId)
     {
         $model = Mage::getModel('neklo_blog/category');
 
         if ($categoryId) {
+
             $model->load($categoryId);
+
+            return $model->getTitle();
         }
 
-        return $model->getTitle();
+    }
+
+    /**
+     * Get count like
+     *
+     * @return mixed
+     */
+
+
+    public function getCountLike($newsId)
+    {
+
+        $modelCount = Mage::getModel('neklo_blog/like')->getCollection()->addFieldToFilter('news_id', $newsId);
+
+        $modelCount->getSelect();
+
+        if ($modelCount->getSize()) {
+
+            return $modelCount->getSize();
+
+        }
+
     }
 
 }

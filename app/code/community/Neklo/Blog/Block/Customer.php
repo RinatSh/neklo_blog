@@ -29,6 +29,13 @@ class Neklo_Blog_Block_Customer extends Mage_Core_Block_Template
 
     }
 
+    /**
+     * Return URL like
+     *
+     * @param $newsItemLike
+     * @return string
+     */
+
     public function getItemUrl($newsItemLike)
     {
 
