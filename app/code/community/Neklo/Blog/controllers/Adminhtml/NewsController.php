@@ -163,6 +163,20 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
 
             }
 
+            /**
+             * add categories
+             */
+
+            if(isset($data['categories'])) {
+
+                if(in_array('0', $data['categories'])){
+                    $data['category'] = '0';
+                }
+                else{
+                    $data['category'] = implode(",", $data['categories']);
+                }
+                unset($data['categories']);
+            }
 
             $model->addData($data);
 
@@ -187,6 +201,8 @@ class Neklo_Blog_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Acti
                     $redirectParams = array('id' => $model->getId());
 
                 }
+
+
             } catch (Mage_Core_Exception $e) {
 
                 $hasError = true;

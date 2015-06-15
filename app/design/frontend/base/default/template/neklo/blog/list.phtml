@@ -33,9 +33,19 @@
 
                 <div class="news_item_subtitle">
                     <p>
-                        <b>Category: </b><a href="<?php echo $this->getItemUrlCategory($newsItem) ?>">
-                            <?php echo $this->getItemCategory($newsItem->getCategory()) ?>
-                        </a>
+                        <?php if ($newsCategories = $this->getCategoryList($newsItem->getCategory())):?>
+
+                            <?php foreach ($newsCategories as $category): ?>
+
+                                <b>Category: </b><a href="<?php echo $this->getItemUrlCategory($category); ?>">
+
+                                    <?php echo $this->getItemCategory($category); ?>
+
+                                </a>
+
+                            <?php endforeach; ?>
+
+                        <?php endif; ?>
                     </p>
 
                     <p>

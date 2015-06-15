@@ -90,15 +90,25 @@ class Neklo_Blog_Block_Adminhtml_News_Edit_Tab_Main
             'required' => true
         ));
 
-        $fieldset->addField('category', 'select', array(
-            'name'      => 'category',
-            'label'     => Mage::helper('neklo_blog/config')->__('Category'),
-            'title'     => Mage::helper('neklo_blog/config')->__('Category'),
-            'required'  => true,
-            'disabled' => $isElementDisabled,
-            'class'     => 'HideIt',
-            'values'    => $_menuItems,
-        ));
+        if (!Mage::app()->isSingleStoreMode()) {
+
+            $fieldset->addField('category', 'multiselect', array(
+                'name' => 'categories[]',
+                'label' => Mage::helper('neklo_blog/config')->__('Category'),
+                'title' => Mage::helper('neklo_blog/config')->__('Category'),
+                'required' => true,
+                'values' => $_menuItems,
+            ));
+
+        }
+        else {
+
+            $fieldset->addField('category', 'hidden', array(
+                'name' => 'categories[]',
+                'value' => Mage::app()->getStore(true)->getId()
+            ));
+
+        }
 
         Mage::dispatchEvent('adminhtml_news_edit_tab_main_prepare_form', array('form' => $form));
         $form->setValues($model->getData());
