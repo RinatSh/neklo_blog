@@ -146,7 +146,6 @@ class Neklo_Blog_Block_List extends Mage_Core_Block_Template
      * @return mixed
      */
 
-
     public function getCountLike($newsId)
     {
 
