@@ -18,14 +18,15 @@ class Neklo_Blog_Block_Customer extends Mage_Core_Block_Template
 
         if ($customer->getId()) {
 
-            $collection = Mage::getModel('neklo_blog/like')->getCollection();
-            $collection->addFieldToFilter('customer_id', $customer->getId());
+            $collection = Mage::getModel('neklo_blog/news')->getCollection();
             $collection->getSelect()
-                ->joinLeft(array('news' => 'neklo_blog_news'), 'news.entity_id = main_table.news_id');
+                ->joinLeft(array('like' => 'neklo_blog_like'), 'main_table.entity_id = like.news_id');
+             $collection->addFieldToFilter('customer_id', $customer->getId());
+            
+            return $collection;
 
         }
 
-        return $collection;
     }
 
     public function getItemUrl($newsItemLike)
